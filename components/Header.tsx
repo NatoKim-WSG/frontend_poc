@@ -37,7 +37,7 @@ export default function Header() {
               {/* NBI Seal */}
               <div className="w-20 h-20 relative flex-shrink-0">
                 <Image
-                  src="/nbilogo.jpg"
+                  src="/nbilogo_nobg.png"
                   alt="NBI Logo"
                   fill
                   className="object-contain"

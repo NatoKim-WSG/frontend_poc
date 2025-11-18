@@ -177,7 +177,7 @@ export default function Footer() {
           <div className="flex justify-center mb-4">
             <div className="w-20 h-20 relative">
               <Image
-                src="/nbilogo.jpg"
+                src="/nbilogo_nobg.png"
                 alt="NBI Logo"
                 fill
                 className="object-contain"
