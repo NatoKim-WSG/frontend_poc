@@ -175,12 +175,11 @@ export default function Footer() {
         {/* NBI Seal and Description */}
         <div className="text-center py-8 border-t border-blue-900">
           <div className="flex justify-center mb-4">
-            <div className="w-16 h-16 relative">
+            <div className="w-20 h-20 relative">
               <Image
                 src="/nbilogo.jpg"
                 alt="NBI Logo"
-                width={64}
-                height={64}
+                fill
                 className="object-contain"
               />
             </div>

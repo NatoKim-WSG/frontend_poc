@@ -35,13 +35,13 @@ export default function Header() {
             {/* Logo and Title */}
             <Link href="/" className="flex items-center gap-4">
               {/* NBI Seal */}
-              <div className="w-16 h-16 relative flex-shrink-0">
+              <div className="w-20 h-20 relative flex-shrink-0">
                 <Image
                   src="/nbilogo.jpg"
                   alt="NBI Logo"
-                  width={64}
-                  height={64}
+                  fill
                   className="object-contain"
+                  priority
                 />
               </div>
               <div className="flex flex-col">
