@@ -56,12 +56,15 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-8">
-              <Link href="/" className="text-gray-700 hover:text-blue-600 font-medium transition-colors relative inline-block">
+              <Link href="/" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
                 Home
-                <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-red-600"></span>
               </Link>
-              <Link href="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+              <Link
+                href="/about"
+                className="text-gray-700 font-medium transition-colors relative inline-flex flex-col items-center"
+              >
                 About
+                <span className="w-8 h-0.5 bg-red-600 mt-1 rounded-full"></span>
               </Link>
               <Link href="/branches" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
                 Branches
@@ -70,7 +73,7 @@ export default function Header() {
                 FAQs
               </Link>
               <Link
-                href="/authenticate"
+                href="/apply"
                 className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
               >
                 Apply Now

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Features() {
   return (
     <section className="py-16 bg-gray-50">
@@ -104,9 +106,12 @@ export default function Features() {
                 </li>
               </ul>
               <div className="text-center">
-                <button className="px-8 py-3 border-2 border-[#003B7A] text-[#003B7A] rounded-full font-semibold hover:bg-[#003B7A] hover:text-white transition-colors">
+                <Link
+                  href="/faqs#international"
+                  className="inline-block px-8 py-3 border-2 border-[#003B7A] text-[#003B7A] rounded-full font-semibold hover:bg-[#003B7A] hover:text-white transition-colors"
+                >
                   Learn More
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -158,9 +163,12 @@ export default function Features() {
                 </li>
               </ul>
               <div className="text-center">
-                <button className="px-8 py-3 border-2 border-[#003B7A] text-[#003B7A] rounded-full font-semibold hover:bg-[#003B7A] hover:text-white transition-colors">
+                <Link
+                  href="/faqs#fees"
+                  className="inline-block px-8 py-3 border-2 border-[#003B7A] text-[#003B7A] rounded-full font-semibold hover:bg-[#003B7A] hover:text-white transition-colors"
+                >
                   View Payment Options
-                </button>
+                </Link>
               </div>
             </div>
           </div>

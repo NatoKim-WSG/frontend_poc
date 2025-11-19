@@ -21,7 +21,7 @@ export default function Hero() {
       title: "Secure Your NBI Clearance Online",
       description:
         "Apply or renew your NBI Clearance through our official website. Skip the long lines and complete your application with just a few clicks.",
-      button: { text: "Apply Now", href: "/authenticate" },
+      button: { text: "Apply Now", href: "/apply#new" },
     },
     {
       badge: { icon: "fa-rocket", text: "Fast & Efficient" },
@@ -35,7 +35,7 @@ export default function Hero() {
       title: "Special Services for Filipinos Abroad",
       description:
         "Special procedures available for Filipinos overseas who need to process their NBI Clearance for foreign employment or visa applications.",
-      button: { text: "Learn More", href: "/authenticate#international" },
+      button: { text: "Learn More", href: "/apply#new" },
     },
   ];
 

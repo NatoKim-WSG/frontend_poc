@@ -44,7 +44,7 @@ export default function Services() {
               </div>
               <h3 className="text-xl font-semibold mb-2 text-gray-800">Online Booking</h3>
               <p className="text-gray-600 mb-4">Schedule your appointment at your preferred location</p>
-              <Link href="/authenticate" className="text-blue-600 hover:text-blue-700 font-medium">
+              <Link href="/apply#existing" className="text-blue-600 hover:text-blue-700 font-medium">
                 Schedule Now <i className="fas fa-arrow-right ml-1"></i>
               </Link>
             </div>
@@ -79,7 +79,7 @@ export default function Services() {
                   </li>
                 </ul>
                 <Link
-                  href="/authenticate#international"
+                  href="/apply#new"
                   className="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors font-semibold"
                 >
                   Apply as OFW <i className="fas fa-arrow-right ml-2"></i>

@@ -44,22 +44,22 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5 mt-6">
               <li>
-                <Link href="/authenticate#new" className="hover:text-yellow-400 hover:translate-x-1 transition-all inline-block">
+                <Link href="/faqs#new" className="hover:text-yellow-400 hover:translate-x-1 transition-all inline-block">
                   New NBI Clearance
                 </Link>
               </li>
               <li>
-                <Link href="/authenticate#renewal" className="hover:text-yellow-400 hover:translate-x-1 transition-all inline-block">
+                <Link href="/faqs#renewal" className="hover:text-yellow-400 hover:translate-x-1 transition-all inline-block">
                   Renewal
                 </Link>
               </li>
               <li>
-                <Link href="/authenticate#international" className="hover:text-yellow-400 hover:translate-x-1 transition-all inline-block">
+                <Link href="/faqs#international" className="hover:text-yellow-400 hover:translate-x-1 transition-all inline-block">
                   International Services
                 </Link>
               </li>
               <li>
-                <Link href="/authenticate#fees-payment" className="hover:text-yellow-400 hover:translate-x-1 transition-all inline-block">
+                <Link href="/faqs#fees" className="hover:text-yellow-400 hover:translate-x-1 transition-all inline-block">
                   Payment Options
                 </Link>
               </li>
@@ -74,12 +74,12 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5 mt-6">
               <li>
-                <Link href="/requirements" className="hover:text-yellow-400 hover:translate-x-1 transition-all inline-block">
+                <Link href="/faqs#apply" className="hover:text-yellow-400 hover:translate-x-1 transition-all inline-block">
                   How to Apply
                 </Link>
               </li>
               <li>
-                <Link href="/requirements" className="hover:text-yellow-400 hover:translate-x-1 transition-all inline-block">
+                <Link href="/faqs#ids" className="hover:text-yellow-400 hover:translate-x-1 transition-all inline-block">
                   ID Requirements
                 </Link>
               </li>
