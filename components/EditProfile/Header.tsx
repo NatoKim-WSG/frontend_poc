@@ -3,15 +3,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
 
 export default function Header() {
   const [showMenu, setShowMenu] = useState(false);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const router = useRouter();
 
   const toggleMenu = () => setShowMenu((prev) => !prev);
   const closeMenu = () => setShowMenu(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!isLoggingOut) return;
@@ -47,7 +53,7 @@ export default function Header() {
       <header className="bg-white shadow-sm sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="flex items-center justify-between py-4">
-            <div className="flex items-center gap-4">
+            <Link href="/user-profile" className="flex items-center gap-4">
               <div className="relative w-16 h-16">
                 <Image src="/nbilogo_nobg.png" alt="NBI Logo" fill className="object-contain" priority />
               </div>
@@ -57,7 +63,7 @@ export default function Header() {
                 </h1>
                 <p className="text-red-600 text-sm font-semibold">CLEARANCE PROCESSING SYSTEM</p>
               </div>
-            </div>
+            </Link>
 
             <div className="flex items-center gap-4">
               <button
@@ -110,15 +116,18 @@ export default function Header() {
         </div>
       </header>
 
-      {isLoggingOut && (
-        <div className="fixed bottom-6 right-6 bg-white border border-gray-200 shadow-lg rounded-lg px-4 py-3 flex items-center gap-3 text-sm text-gray-700 z-50">
-          <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-          <div>
-            <p className="font-semibold text-gray-900">Logging out...</p>
-            <p className="text-gray-500">Redirecting to Existing User login</p>
-          </div>
-        </div>
-      )}
+      {isMounted &&
+        isLoggingOut &&
+        createPortal(
+          <div className="fixed bottom-6 right-6 bg-white border border-gray-200 shadow-lg rounded-lg px-4 py-3 flex items-center gap-3 text-sm text-gray-700 z-[1000]">
+            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+            <div>
+              <p className="font-semibold text-gray-900">Logging out...</p>
+              <p className="text-gray-500">Redirecting to Existing User login</p>
+            </div>
+          </div>,
+          document.body
+        )}
     </>
   );
 }

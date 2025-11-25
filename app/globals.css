@@ -29,6 +29,19 @@ html {
   animation: pageFadeIn 320ms ease forwards;
 }
 
+@keyframes progress-move {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.slow-spin {
+  animation: spin 1.6s linear infinite;
+}
+
 @keyframes pageFadeIn {
   from {
     opacity: 0;

@@ -25,6 +25,7 @@ type ActiveForm = "none" | "existing" | "new";
 
 export default function AuthSection() {
   const [activeForm, setActiveForm] = useState<ActiveForm>("none");
+  const [showForgot, setShowForgot] = useState(false);
 
   useEffect(() => {
     const syncFromHash = () => {
@@ -59,9 +60,13 @@ export default function AuthSection() {
         <div>
           <div className="flex items-center justify-between mb-2">
             <label className="block text-sm font-medium text-gray-700">Password</label>
-            <a href="#" className="text-sm text-[#0B2C5A] hover:underline">
+            <button
+              type="button"
+              onClick={() => setShowForgot(true)}
+              className="text-sm text-[#0B2C5A] hover:underline font-semibold"
+            >
               Forgot Password?
-            </a>
+            </button>
           </div>
           <input
             type="password"
@@ -69,14 +74,12 @@ export default function AuthSection() {
             className="w-full border border-gray-200 rounded-xl px-4 py-3 focus:border-[#0B2C5A] focus:ring-2 focus:ring-[#0B2C5A]/20 outline-none"
           />
         </div>
-        <button
-          type="button"
-          className="w-full bg-[#0B2C5A] text-white py-3 rounded-xl font-semibold hover:bg-[#0d2f63] transition-colors"
+        <Link
+          href="/user-profile"
+          className="w-full bg-[#0B2C5A] text-white py-3 rounded-xl font-semibold hover:bg-[#0d2f63] transition-colors text-center inline-flex items-center justify-center"
         >
-          <Link href="/user-profile" className="block w-full h-full text-center">
-            Login
-          </Link>
-        </button>
+          Login
+        </Link>
       </form>
     </div>
   );
@@ -233,6 +236,57 @@ export default function AuthSection() {
           ))}
         </div>
       </div>
+
+      {showForgot && (
+        <div className="fixed inset-0 z-50">
+          <div
+            className="absolute inset-0 bg-black/20 backdrop-blur-sm"
+            aria-hidden="true"
+            onClick={() => setShowForgot(false)}
+          />
+          <div className="sticky top-20 md:top-24 flex justify-center px-4 py-8 pointer-events-none">
+            <div
+              className="pointer-events-auto relative w-full max-w-md bg-white rounded-2xl shadow-2xl border border-gray-100 p-6 max-h-[80vh] overflow-y-auto"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={() => setShowForgot(false)}
+                className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+                aria-label="Close forgot password"
+              >
+                <i className="fas fa-times"></i>
+              </button>
+              <h3 className="text-xl font-semibold text-[#0B2C5A] mb-2">Forgot Password</h3>
+              <p className="text-sm text-gray-600 mb-4">
+                Enter the email associated with your account and we&apos;ll send you a reset link.
+              </p>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+              <input
+                type="email"
+                placeholder="name@email.com"
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 focus:border-[#0B2C5A] focus:ring-2 focus:ring-[#0B2C5A]/20 outline-none mb-4"
+              />
+              <div className="flex items-center justify-end gap-3">
+                <button
+                  type="button"
+                  onClick={() => setShowForgot(false)}
+                  className="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-gray-800"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  className="px-4 py-2 rounded-lg text-sm font-semibold bg-[#0B2C5A] text-white hover:bg-[#0d2f63] transition-colors"
+                  onClick={() => setShowForgot(false)}
+                >
+                  Send Reset Link
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

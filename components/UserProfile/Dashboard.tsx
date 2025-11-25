@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const InfoRow = ({ label, value }: { label: string; value: string }) => (
   <div className="text-sm text-gray-700">
@@ -17,15 +17,32 @@ export default function Dashboard() {
   const [showDelivery, setShowDelivery] = useState(false);
   const [showDigitalId, setShowDigitalId] = useState(false);
   const [digitalStatus, setDigitalStatus] = useState<"checking" | "nohit">("checking");
+  const digitalTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const openTransactions = () => setShowTransactions(true);
   const closeTransactions = () => setShowTransactions(false);
   const openDigitalId = () => {
-    setShowDigitalId(true);
     setDigitalStatus("checking");
-    setTimeout(() => setDigitalStatus("nohit"), 1300);
+    setShowDigitalId(true);
   };
-  const closeDigitalId = () => setShowDigitalId(false);
+  const closeDigitalId = () => {
+    if (digitalTimerRef.current) {
+      clearTimeout(digitalTimerRef.current);
+      digitalTimerRef.current = null;
+    }
+    setShowDigitalId(false);
+  };
+
+  useEffect(() => {
+    if (!showDigitalId) return;
+    digitalTimerRef.current = setTimeout(() => setDigitalStatus("nohit"), 1300);
+    return () => {
+      if (digitalTimerRef.current) {
+        clearTimeout(digitalTimerRef.current);
+        digitalTimerRef.current = null;
+      }
+    };
+  }, [showDigitalId]);
 
   return (
     <section className="bg-[#F5F7FB] py-10 relative">
@@ -388,11 +405,30 @@ export default function Dashboard() {
               </div>
 
               {digitalStatus === "checking" && (
-                <div className="flex flex-col items-center justify-center py-8 space-y-4">
-                  <div className="w-16 h-16 rounded-full border-4 border-yellow-400 flex items-center justify-center animate-pulse">
-                    <i className="fas fa-search text-yellow-500 text-2xl"></i>
+                <div className="flex flex-col items-center justify-center py-8 space-y-5">
+                  <div className="relative">
+                    <div className="absolute inset-0 rounded-full bg-yellow-200/50 animate-ping"></div>
+                    <div className="w-16 h-16 rounded-full border-4 border-yellow-400 flex items-center justify-center animate-spin slow-spin">
+                      <i className="fas fa-search text-yellow-500 text-2xl"></i>
+                    </div>
                   </div>
-                  <p className="text-sm font-semibold text-gray-600">Checking for HIT...</p>
+                  <div className="w-48 h-2 bg-gray-100 rounded-full overflow-hidden">
+                    <div className="h-full bg-yellow-400 animate-[progress-move_1.4s_linear_infinite]"></div>
+                  </div>
+                  <div className="flex items-center gap-1 text-sm font-semibold text-gray-600">
+                    <span>Checking for HIT</span>
+                    <span className="flex gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-gray-500 animate-bounce"></span>
+                      <span
+                        className="w-1.5 h-1.5 rounded-full bg-gray-500 animate-bounce"
+                        style={{ animationDelay: "0.15s" }}
+                      ></span>
+                      <span
+                        className="w-1.5 h-1.5 rounded-full bg-gray-500 animate-bounce"
+                        style={{ animationDelay: "0.3s" }}
+                      ></span>
+                    </span>
+                  </div>
                 </div>
               )}
 
