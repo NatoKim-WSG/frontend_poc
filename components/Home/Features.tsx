@@ -18,7 +18,7 @@ export default function Features() {
         {/* Service Cards */}
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {/* Online Appointment */}
-          <div className="bg-white rounded-2xl shadow-lg overflow-visible hover:shadow-xl hover:-translate-y-2 transition-all duration-300 relative">
+          <div className="bg-white rounded-2xl shadow-lg overflow-visible hover:shadow-2xl hover:-translate-y-2 transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] transform-gpu relative">
             {/* Image placeholder */}
             <div className="relative h-64 bg-gradient-to-br from-red-100 to-pink-50 flex items-center justify-center rounded-t-2xl overflow-hidden">
               <div className="text-center">
@@ -56,7 +56,7 @@ export default function Features() {
                 </li>
               </ul>
               <div className="text-center">
-                <button className="px-8 py-3 border-2 border-[#003B7A] text-[#003B7A] rounded-full font-semibold hover:bg-[#003B7A] hover:text-white transition-colors">
+                <button className="px-8 py-3 border-2 border-[#003B7A] text-[#003B7A] rounded-full font-semibold hover:bg-[#003B7A] hover:text-white transition-all duration-300 ease-out">
                   Schedule Now
                 </button>
               </div>
@@ -64,7 +64,7 @@ export default function Features() {
           </div>
 
           {/* Door-to-Door Delivery */}
-          <div className="bg-white rounded-2xl shadow-lg overflow-visible hover:shadow-xl hover:-translate-y-2 transition-all duration-300 relative">
+          <div className="bg-white rounded-2xl shadow-lg overflow-visible hover:shadow-2xl hover:-translate-y-2 transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] transform-gpu relative">
             {/* Image placeholder */}
             <div className="relative h-64 bg-gradient-to-br from-blue-100 to-cyan-50 flex items-center justify-center rounded-t-2xl overflow-hidden">
               <div className="text-center">
@@ -108,7 +108,7 @@ export default function Features() {
               <div className="text-center">
                 <Link
                   href="/faqs#international"
-                  className="inline-block px-8 py-3 border-2 border-[#003B7A] text-[#003B7A] rounded-full font-semibold hover:bg-[#003B7A] hover:text-white transition-colors"
+                  className="inline-block px-8 py-3 border-2 border-[#003B7A] text-[#003B7A] rounded-full font-semibold hover:bg-[#003B7A] hover:text-white transition-all duration-300 ease-out"
                 >
                   Learn More
                 </Link>
@@ -117,7 +117,7 @@ export default function Features() {
           </div>
 
           {/* E-Wallet Payments */}
-          <div className="bg-white rounded-2xl shadow-lg overflow-visible hover:shadow-xl hover:-translate-y-2 transition-all duration-300 relative">
+          <div className="bg-white rounded-2xl shadow-lg overflow-visible hover:shadow-2xl hover:-translate-y-2 transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] transform-gpu relative">
             {/* Image placeholder */}
             <div className="relative h-64 bg-gradient-to-br from-purple-100 to-violet-50 flex items-center justify-center rounded-t-2xl overflow-hidden">
               <div className="text-center">
@@ -165,7 +165,7 @@ export default function Features() {
               <div className="text-center">
                 <Link
                   href="/faqs#fees"
-                  className="inline-block px-8 py-3 border-2 border-[#003B7A] text-[#003B7A] rounded-full font-semibold hover:bg-[#003B7A] hover:text-white transition-colors"
+                  className="inline-block px-8 py-3 border-2 border-[#003B7A] text-[#003B7A] rounded-full font-semibold hover:bg-[#003B7A] hover:text-white transition-all duration-300 ease-out"
                 >
                   View Payment Options
                 </Link>

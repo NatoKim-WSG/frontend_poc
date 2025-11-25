@@ -25,7 +25,9 @@ export default function RootLayout({
           referrerPolicy="no-referrer"
         />
       </head>
-      <body>{children}</body>
+      <body className="antialiased bg-white text-gray-900">
+        <div className="page-shell">{children}</div>
+      </body>
     </html>
   );
 }

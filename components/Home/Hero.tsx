@@ -52,8 +52,10 @@ export default function Hero() {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              currentSlide === index ? "opacity-100" : "opacity-0 pointer-events-none"
+            className={`absolute inset-0 transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] transform-gpu ${
+              currentSlide === index
+                ? "opacity-100 translate-y-0 scale-100"
+                : "opacity-0 pointer-events-none translate-y-3 scale-[0.995]"
             }`}
           >
             <div className="h-full flex items-center justify-center px-4 py-16 md:py-20">
@@ -76,7 +78,7 @@ export default function Hero() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
                   <Link
                     href={slide.button.href}
-                    className="bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg hover:bg-yellow-500 transition-colors font-semibold text-lg shadow-lg"
+                    className="bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg hover:bg-yellow-500 transition-all duration-300 ease-out font-semibold text-lg shadow-lg hover:shadow-xl"
                   >
                     {slide.button.text}
                   </Link>

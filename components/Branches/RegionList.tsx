@@ -109,28 +109,32 @@ export default function RegionList() {
             </div>
 
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-sm text-gray-700">
+              <table className="w-full min-w-[900px] text-left text-sm text-gray-700">
                 <thead className="bg-[#0B2C5A] text-white">
                   <tr>
-                    <th className="px-6 py-3 font-semibold">Branch Name</th>
-                    <th className="px-6 py-3 font-semibold">Office Type</th>
-                    <th className="px-6 py-3 font-semibold">Address</th>
-                    <th className="px-6 py-3 font-semibold">Contact Number</th>
+                    <th className="px-6 py-3 font-semibold whitespace-nowrap">Branch Name</th>
+                    <th className="px-6 py-3 font-semibold whitespace-nowrap">Office Type</th>
+                    <th className="px-6 py-3 font-semibold whitespace-nowrap">Address</th>
+                    <th className="px-6 py-3 font-semibold whitespace-nowrap">Contact Number</th>
                   </tr>
                 </thead>
                 <tbody>
                   {region.branches.map((branch, index) => (
                     <tr key={branch.name} className="border-b border-gray-100 last:border-b-0">
-                      <td className="px-6 py-4 font-semibold text-gray-900">{branch.name}</td>
-                      <td className="px-6 py-4">
+                      <td className="px-6 py-4 font-semibold text-gray-900 align-top whitespace-nowrap">
+                        {branch.name}
+                      </td>
+                      <td className="px-6 py-4 align-top whitespace-nowrap">
                         <span
-                          className={`px-3 py-1 rounded-lg text-xs font-semibold ${badgeColors[branch.type]}`}
+                          className={`inline-flex items-center px-3 py-1 rounded-lg text-xs font-semibold ${badgeColors[branch.type]}`}
                         >
                           {officeTypeLabels[branch.type]}
                         </span>
                       </td>
-                      <td className="px-6 py-4">{branch.address}</td>
-                      <td className="px-6 py-4 font-medium">{branch.contact}</td>
+                      <td className="px-6 py-4 align-top whitespace-normal break-words">{branch.address}</td>
+                      <td className="px-6 py-4 font-medium align-top whitespace-nowrap">
+                        {branch.contact}
+                      </td>
                     </tr>
                   ))}
                 </tbody>

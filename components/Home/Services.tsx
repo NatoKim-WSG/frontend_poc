@@ -16,7 +16,7 @@ export default function Services() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition-shadow">
+            <div className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] transform-gpu">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <i className="fas fa-building text-blue-600 text-2xl"></i>
               </div>
@@ -27,7 +27,7 @@ export default function Services() {
               </Link>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition-shadow">
+            <div className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] transform-gpu">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <i className="fas fa-map-marker-alt text-blue-600 text-2xl"></i>
               </div>
@@ -38,7 +38,7 @@ export default function Services() {
               </Link>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition-shadow">
+            <div className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] transform-gpu">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <i className="fas fa-calendar-check text-blue-600 text-2xl"></i>
               </div>
@@ -80,7 +80,7 @@ export default function Services() {
                 </ul>
                 <Link
                   href="/apply#new"
-                  className="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors font-semibold"
+                  className="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg hover:bg-gray-100 transition-all duration-300 ease-out font-semibold shadow-sm hover:shadow-md"
                 >
                   Apply as OFW <i className="fas fa-arrow-right ml-2"></i>
                 </Link>

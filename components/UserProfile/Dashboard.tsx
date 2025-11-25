@@ -28,7 +28,7 @@ export default function Dashboard() {
   const closeDigitalId = () => setShowDigitalId(false);
 
   return (
-    <section className="bg-[#F5F7FB] py-10">
+    <section className="bg-[#F5F7FB] py-10 relative">
       <div className="max-w-6xl mx-auto px-4 md:px-6 space-y-8">
         <div className="bg-[#0A3A74] text-white rounded-2xl shadow-md p-6 flex flex-col md:flex-row md:items-center md:justify-between">
           <div>
@@ -150,105 +150,105 @@ export default function Dashboard() {
       </div>
 
       {showTransactions && (
-        <div
-          className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 px-4"
-          onClick={closeTransactions}
-        >
-          <div
-            className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full p-6 relative"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-gray-800">All Transactions</h3>
-              <button type="button" onClick={closeTransactions} className="text-gray-500 hover:text-gray-800">
-                <i className="fas fa-times"></i>
-              </button>
-            </div>
-            <div className="bg-gray-50 border border-dashed border-gray-200 rounded-xl p-8 text-center">
-              <p className="text-base font-semibold text-gray-700">No Transactions Found</p>
-              <p className="text-sm text-gray-500 mt-1">You don&apos;t have any transactions yet.</p>
+        <div className="absolute inset-0 z-50">
+          <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" aria-hidden="true" onClick={closeTransactions} />
+          <div className="sticky top-20 md:top-24 flex justify-center px-4 py-8 pointer-events-none">
+            <div
+              className="pointer-events-auto relative bg-white rounded-2xl shadow-2xl border border-gray-100 max-w-3xl w-full max-h-[80vh] overflow-y-auto p-6"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <div className="flex items-center justify-between mb-4 sticky top-0 bg-white pt-1 pb-3">
+                <h3 className="text-lg font-semibold text-gray-800">All Transactions</h3>
+                <button type="button" onClick={closeTransactions} className="text-gray-500 hover:text-gray-800">
+                  <i className="fas fa-times"></i>
+                </button>
+              </div>
+              <div className="bg-gray-50 border border-dashed border-gray-200 rounded-xl p-8 text-center">
+                <p className="text-base font-semibold text-gray-700">No Transactions Found</p>
+                <p className="text-sm text-gray-500 mt-1">You don&apos;t have any transactions yet.</p>
+              </div>
             </div>
           </div>
         </div>
       )}
 
       {showNewApplication && (
-        <div
-          className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 px-4"
-          onClick={() => setShowNewApplication(false)}
-        >
-          <div
-            className="bg-white rounded-2xl shadow-2xl max-w-xl w-full p-6 relative"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-gray-800">New NBI Clearance Application</h3>
-              <button
-                type="button"
-                onClick={() => setShowNewApplication(false)}
-                className="text-gray-500 hover:text-gray-800"
-              >
-                <i className="fas fa-times"></i>
-              </button>
-            </div>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1">
-                  Purpose of Clearance <span className="text-red-500">*</span>
-                </label>
-                <select className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0B2C5A]/30">
-                  <option value="">Select Purpose</option>
-                  <option value="employment-local">Employment (Local)</option>
-                  <option value="employment-abroad">Employment (Abroad)</option>
-                  <option value="travel">Travel</option>
-                  <option value="visa">Visa Application</option>
-                </select>
-              </div>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-1">
-                    ID Type <span className="text-red-500">*</span>
-                  </label>
-                  <select className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0B2C5A]/30">
-                    <option value="">Select ID Type</option>
-                    <option value="drivers-license">Driver&apos;s License</option>
-                    <option value="postal-id">Postal ID</option>
-                    <option value="passport">Philippine Passport</option>
-                    <option value="philsys-id">PhilSys ID (National ID)</option>
-                    <option value="sss-umid">SSS ID/UMID</option>
-                    <option value="gsis-umid">GSIS ID/UMID</option>
-                    <option value="voters-id">Voter&apos;s ID</option>
-                    <option value="prc-id">PRC ID</option>
-                    <option value="philhealth-id">PhilHealth ID</option>
-                    <option value="pagibig-id">Pag-IBIG ID</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-1">
-                    ID Number <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0B2C5A]/30"
-                    placeholder="Enter your ID number"
-                  />
-                </div>
-              </div>
-              <div className="flex items-center justify-end gap-3 pt-2">
+        <div className="absolute inset-0 z-50">
+          <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" aria-hidden="true" onClick={() => setShowNewApplication(false)} />
+          <div className="sticky top-20 md:top-24 flex justify-center px-4 py-8 pointer-events-none">
+            <div
+              className="pointer-events-auto relative bg-white rounded-2xl shadow-2xl border border-gray-100 max-w-xl w-full max-h-[80vh] overflow-y-auto p-6"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-semibold text-gray-800">New NBI Clearance Application</h3>
                 <button
                   type="button"
                   onClick={() => setShowNewApplication(false)}
-                  className="px-4 py-2 rounded-md border border-gray-300 text-sm font-semibold text-gray-700 hover:bg-gray-50"
+                  className="text-gray-500 hover:text-gray-800"
                 >
-                  Cancel
+                  <i className="fas fa-times"></i>
                 </button>
-                <Link
-                  href="/schedule-appointment"
-                  className="px-5 py-2 rounded-md bg-[#0B2C5A] text-white text-sm font-semibold hover:bg-[#0d2f63]"
-                  onClick={() => setShowNewApplication(false)}
-                >
-                  Continue
-                </Link>
+              </div>
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">
+                    Purpose of Clearance <span className="text-red-500">*</span>
+                  </label>
+                  <select className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0B2C5A]/30">
+                    <option value="">Select Purpose</option>
+                    <option value="employment-local">Employment (Local)</option>
+                    <option value="employment-abroad">Employment (Abroad)</option>
+                    <option value="travel">Travel</option>
+                    <option value="visa">Visa Application</option>
+                  </select>
+                </div>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">
+                      ID Type <span className="text-red-500">*</span>
+                    </label>
+                    <select className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0B2C5A]/30">
+                      <option value="">Select ID Type</option>
+                      <option value="drivers-license">Driver&apos;s License</option>
+                      <option value="postal-id">Postal ID</option>
+                      <option value="passport">Philippine Passport</option>
+                      <option value="philsys-id">PhilSys ID (National ID)</option>
+                      <option value="sss-umid">SSS ID/UMID</option>
+                      <option value="gsis-umid">GSIS ID/UMID</option>
+                      <option value="voters-id">Voter&apos;s ID</option>
+                      <option value="prc-id">PRC ID</option>
+                      <option value="philhealth-id">PhilHealth ID</option>
+                      <option value="pagibig-id">Pag-IBIG ID</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">
+                      ID Number <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0B2C5A]/30"
+                      placeholder="Enter your ID number"
+                    />
+                  </div>
+                </div>
+                <div className="flex items-center justify-end gap-3 pt-2">
+                  <button
+                    type="button"
+                    onClick={() => setShowNewApplication(false)}
+                    className="px-4 py-2 rounded-md border border-gray-300 text-sm font-semibold text-gray-700 hover:bg-gray-50"
+                  >
+                    Cancel
+                  </button>
+                  <Link
+                    href="/schedule-appointment"
+                    className="px-5 py-2 rounded-md bg-[#0B2C5A] text-white text-sm font-semibold hover:bg-[#0d2f63]"
+                    onClick={() => setShowNewApplication(false)}
+                  >
+                    Continue
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -256,52 +256,52 @@ export default function Dashboard() {
       )}
 
       {showRenewal && (
-        <div
-          className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 px-4"
-          onClick={() => setShowRenewal(false)}
-        >
-          <div
-            className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 relative"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-gray-800">Renew NBI Clearance</h3>
-              <button
-                type="button"
-                onClick={() => setShowRenewal(false)}
-                className="text-gray-500 hover:text-gray-800"
-              >
-                <i className="fas fa-times"></i>
-              </button>
-            </div>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1">
-                  NBI ID Number <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0B2C5A]/30"
-                  placeholder="Enter your NBI ID number"
-                />
-                <p className="text-xs text-gray-500 mt-1">
-                  Your NBI ID number can be found on your previous NBI Clearance certificate.
-                </p>
-              </div>
-              <div className="flex items-center justify-end gap-3 pt-2">
+        <div className="absolute inset-0 z-50">
+          <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" aria-hidden="true" onClick={() => setShowRenewal(false)} />
+          <div className="sticky top-20 md:top-24 flex justify-center px-4 py-8 pointer-events-none">
+            <div
+              className="pointer-events-auto relative bg-white rounded-2xl shadow-2xl border border-gray-100 max-w-lg w-full max-h-[80vh] overflow-y-auto p-6"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-semibold text-gray-800">Renew NBI Clearance</h3>
                 <button
                   type="button"
                   onClick={() => setShowRenewal(false)}
-                  className="px-4 py-2 rounded-md border border-gray-300 text-sm font-semibold text-gray-700 hover:bg-gray-50"
+                  className="text-gray-500 hover:text-gray-800"
                 >
-                  Cancel
+                  <i className="fas fa-times"></i>
                 </button>
-                <button
-                  type="button"
-                  className="px-5 py-2 rounded-md bg-[#0B2C5A] text-white text-sm font-semibold hover:bg-[#0d2f63]"
-                >
-                  Continue
-                </button>
+              </div>
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">
+                    NBI ID Number <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0B2C5A]/30"
+                    placeholder="Enter your NBI ID number"
+                  />
+                  <p className="text-xs text-gray-500 mt-1">
+                    Your NBI ID number can be found on your previous NBI Clearance certificate.
+                  </p>
+                </div>
+                <div className="flex items-center justify-end gap-3 pt-2">
+                  <button
+                    type="button"
+                    onClick={() => setShowRenewal(false)}
+                    className="px-4 py-2 rounded-md border border-gray-300 text-sm font-semibold text-gray-700 hover:bg-gray-50"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    className="px-5 py-2 rounded-md bg-[#0B2C5A] text-white text-sm font-semibold hover:bg-[#0d2f63]"
+                  >
+                    Continue
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -309,59 +309,59 @@ export default function Dashboard() {
       )}
 
       {showDelivery && (
-        <div
-          className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 px-4"
-          onClick={() => setShowDelivery(false)}
-        >
-          <div
-            className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 relative"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-gray-800">NBI Clearance Online Delivery</h3>
-              <button
-                type="button"
-                onClick={() => setShowDelivery(false)}
-                className="text-gray-500 hover:text-gray-800"
-              >
-                <i className="fas fa-times"></i>
-              </button>
-            </div>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1">
-                  NBI ID Number <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0B2C5A]/30"
-                  placeholder="Enter your NBI ID number"
-                />
-                <p className="text-xs text-gray-500 mt-1">
-                  Your NBI ID number can be found on your previous NBI Clearance certificate.
-                </p>
-              </div>
-              <div className="bg-blue-50 border border-blue-100 text-blue-900 text-sm rounded-xl p-3 flex gap-2">
-                <i className="fas fa-info-circle mt-0.5"></i>
-                <p>
-                  The Online Delivery service allows you to have your NBI Clearance delivered to your doorstep. You must
-                  have a previous NBI Clearance to use this service.
-                </p>
-              </div>
-              <div className="flex items-center justify-end gap-3 pt-2">
+        <div className="absolute inset-0 z-50">
+          <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" aria-hidden="true" onClick={() => setShowDelivery(false)} />
+          <div className="sticky top-20 md:top-24 flex justify-center px-4 py-8 pointer-events-none">
+            <div
+              className="pointer-events-auto relative bg-white rounded-2xl shadow-2xl border border-gray-100 max-w-lg w-full max-h-[80vh] overflow-y-auto p-6"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-semibold text-gray-800">NBI Clearance Online Delivery</h3>
                 <button
                   type="button"
                   onClick={() => setShowDelivery(false)}
-                  className="px-4 py-2 rounded-md border border-gray-300 text-sm font-semibold text-gray-700 hover:bg-gray-50"
+                  className="text-gray-500 hover:text-gray-800"
                 >
-                  Cancel
+                  <i className="fas fa-times"></i>
                 </button>
-                <button
-                  type="button"
-                  className="px-5 py-2 rounded-md bg-[#0B2C5A] text-white text-sm font-semibold hover:bg-[#0d2f63]"
-                >
-                  Continue
-                </button>
+              </div>
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">
+                    NBI ID Number <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0B2C5A]/30"
+                    placeholder="Enter your NBI ID number"
+                  />
+                  <p className="text-xs text-gray-500 mt-1">
+                    Your NBI ID number can be found on your previous NBI Clearance certificate.
+                  </p>
+                </div>
+                <div className="bg-blue-50 border border-blue-100 text-blue-900 text-sm rounded-xl p-3 flex gap-2">
+                  <i className="fas fa-info-circle mt-0.5"></i>
+                  <p>
+                    The Online Delivery service allows you to have your NBI Clearance delivered to your doorstep. You must
+                    have a previous NBI Clearance to use this service.
+                  </p>
+                </div>
+                <div className="flex items-center justify-end gap-3 pt-2">
+                  <button
+                    type="button"
+                    onClick={() => setShowDelivery(false)}
+                    className="px-4 py-2 rounded-md border border-gray-300 text-sm font-semibold text-gray-700 hover:bg-gray-50"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    className="px-5 py-2 rounded-md bg-[#0B2C5A] text-white text-sm font-semibold hover:bg-[#0d2f63]"
+                  >
+                    Continue
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -369,49 +369,49 @@ export default function Dashboard() {
       )}
 
       {showDigitalId && (
-        <div
-          className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 px-4"
-          onClick={closeDigitalId}
-        >
-          <div
-            className="bg-white rounded-2xl shadow-2xl max-w-sm w-full p-6 relative"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-gray-800">NBI Clearance Digital ID</h3>
-              <button
-                type="button"
-                onClick={closeDigitalId}
-                className="text-gray-500 hover:text-gray-800"
-              >
-                <i className="fas fa-times"></i>
-              </button>
-            </div>
-
-            {digitalStatus === "checking" && (
-              <div className="flex flex-col items-center justify-center py-8 space-y-4">
-                <div className="w-16 h-16 rounded-full border-4 border-yellow-400 flex items-center justify-center animate-pulse">
-                  <i className="fas fa-search text-yellow-500 text-2xl"></i>
-                </div>
-                <p className="text-sm font-semibold text-gray-600">Checking for HIT...</p>
-              </div>
-            )}
-
-            {digitalStatus === "nohit" && (
-              <div className="flex flex-col items-center justify-center py-8 space-y-5">
-                <div className="w-16 h-16 rounded-full border-4 border-green-500 flex items-center justify-center">
-                  <i className="fas fa-check text-green-500 text-3xl"></i>
-                </div>
-                <p className="text-sm font-semibold text-gray-600">No HIT Found.</p>
-                <Link
-                  href="/digital-clearance-info"
+        <div className="absolute inset-0 z-50">
+          <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" aria-hidden="true" onClick={closeDigitalId} />
+          <div className="sticky top-20 md:top-24 flex justify-center px-4 py-8 pointer-events-none">
+            <div
+              className="pointer-events-auto relative bg-white rounded-2xl shadow-2xl border border-gray-100 max-w-sm w-full max-h-[80vh] overflow-y-auto p-6"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-semibold text-gray-800">NBI Clearance Digital ID</h3>
+                <button
+                  type="button"
                   onClick={closeDigitalId}
-                  className="px-6 py-2.5 rounded-md bg-[#0B2C5A] text-white text-sm font-semibold hover:bg-[#0d2f63]"
+                  className="text-gray-500 hover:text-gray-800"
                 >
-                  Continue
-                </Link>
+                  <i className="fas fa-times"></i>
+                </button>
               </div>
-            )}
+
+              {digitalStatus === "checking" && (
+                <div className="flex flex-col items-center justify-center py-8 space-y-4">
+                  <div className="w-16 h-16 rounded-full border-4 border-yellow-400 flex items-center justify-center animate-pulse">
+                    <i className="fas fa-search text-yellow-500 text-2xl"></i>
+                  </div>
+                  <p className="text-sm font-semibold text-gray-600">Checking for HIT...</p>
+                </div>
+              )}
+
+              {digitalStatus === "nohit" && (
+                <div className="flex flex-col items-center justify-center py-8 space-y-5">
+                  <div className="w-16 h-16 rounded-full border-4 border-green-500 flex items-center justify-center">
+                    <i className="fas fa-check text-green-500 text-3xl"></i>
+                  </div>
+                  <p className="text-sm font-semibold text-gray-600">No HIT Found.</p>
+                  <Link
+                    href="/digital-clearance-info"
+                    onClick={closeDigitalId}
+                    className="px-6 py-2.5 rounded-md bg-[#0B2C5A] text-white text-sm font-semibold hover:bg-[#0d2f63]"
+                  >
+                    Continue
+                  </Link>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}

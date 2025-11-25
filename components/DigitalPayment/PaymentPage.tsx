@@ -4,6 +4,15 @@ export default function PaymentPage() {
   return (
     <section className="bg-[#F5F7FB] py-10 min-h-screen">
       <div className="max-w-6xl mx-auto px-4 md:px-6 space-y-8">
+        <div className="flex items-center justify-between">
+          <Link
+            href="/digital-clearance-info"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#0B2C5A] hover:underline"
+          >
+            <i className="fas fa-arrow-left text-xs"></i>
+            Back to Digital Clearance Info
+          </Link>
+        </div>
         <div className="bg-white shadow-lg rounded-2xl border border-gray-100 p-6">
           <h2 className="text-2xl font-bold text-[#0B2C5A] mb-2">Digital Payment</h2>
           <p className="text-gray-600 text-sm md:text-base">Review your details and complete your payment.</p>
