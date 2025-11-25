@@ -1,11 +1,11 @@
-type Branch = {
+export type Branch = {
   name: string;
   type: "Main Branch" | "Regional Branch" | "District Office" | "Satellite Office";
   address: string;
   contact: string;
 };
 
-type Region = {
+export type Region = {
   region: string;
   branches: Branch[];
 };
@@ -24,7 +24,7 @@ const badgeColors: Record<Branch["type"], string> = {
   "Satellite Office": "bg-purple-100 text-purple-800",
 };
 
-const regions: Region[] = [
+export const regions: Region[] = [
   {
     region: "Region VI (Western Visayas)",
     branches: [

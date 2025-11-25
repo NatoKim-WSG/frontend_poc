@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const infoCards = [
@@ -72,7 +73,9 @@ export default function AuthSection() {
           type="button"
           className="w-full bg-[#0B2C5A] text-white py-3 rounded-xl font-semibold hover:bg-[#0d2f63] transition-colors"
         >
-          Login
+          <Link href="/user-profile" className="block w-full h-full text-center">
+            Login
+          </Link>
         </button>
       </form>
     </div>
@@ -189,19 +192,21 @@ export default function AuthSection() {
           .
         </label>
 
-        <button
-          type="button"
-          className="w-full bg-[#0B2C5A] text-white py-3 rounded-xl font-semibold hover:bg-[#0d2f63] transition-colors"
+        <Link
+          href="/edit-profile"
+          className="w-full bg-[#0B2C5A] text-white py-3 rounded-xl font-semibold hover:bg-[#0d2f63] transition-colors text-center block"
         >
           Register
-        </button>
+        </Link>
       </form>
     </div>
     );
   };
 
   return (
-    <section className="py-16 bg-[#F4F7FB]" id="existing">
+    <section className="py-16 bg-[#F4F7FB] relative">
+      <div id="existing" className="h-0 scroll-mt-32"></div>
+      <div id="new" className="h-0 scroll-mt-32"></div>
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         {activeForm === "none" && (
           <div className="bg-white border border-gray-100 rounded-3xl shadow-lg p-8 text-center text-gray-600">
@@ -213,16 +218,8 @@ export default function AuthSection() {
           </div>
         )}
 
-        {activeForm === "existing" && (
-          <div id="existing" className="scroll-mt-2">
-            <ExistingForm />
-          </div>
-        )}
-        {activeForm === "new" && (
-          <div id="new" className="scroll-mt-2">
-            <NewUserForm />
-          </div>
-        )}
+        {activeForm === "existing" && <ExistingForm />}
+        {activeForm === "new" && <NewUserForm />}
 
         <div className="grid md:grid-cols-3 gap-6 mt-10">
           {infoCards.map((card) => (

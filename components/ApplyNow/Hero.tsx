@@ -5,7 +5,16 @@ import { useCallback } from "react";
 export default function Hero() {
   const handleSelect = useCallback((form: "new" | "existing") => {
     if (typeof window === "undefined") return;
-    window.dispatchEvent(new CustomEvent("apply-form-select", { detail: form }));
+    const nextHash = `#${form}`;
+    if (window.location.hash !== nextHash) {
+      window.location.hash = nextHash;
+    } else {
+      // Force state sync when clicking the same option twice
+      window.dispatchEvent(new HashChangeEvent("hashchange"));
+    }
+
+    const target = document.getElementById(form) ?? document.getElementById("existing");
+    target?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
 
   return (

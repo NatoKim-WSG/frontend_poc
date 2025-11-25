@@ -20,6 +20,10 @@ body {
   font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
+html {
+  scroll-padding-top: 120px;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

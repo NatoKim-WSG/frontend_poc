@@ -265,7 +265,7 @@ export default function FAQSections() {
 
         <div className="space-y-12">
           {categories.map((category) => (
-            <div key={category.id} id={category.id} className="scroll-mt-24">
+            <div key={category.id} id={category.id} className="scroll-mt-36">
               <h2 className="text-xl md:text-2xl font-bold text-[#003B7A] mb-2">{category.title}</h2>
               <p className="text-xs md:text-sm text-gray-600 mb-5">{category.description}</p>
 

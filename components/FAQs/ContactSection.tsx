@@ -21,7 +21,7 @@ const cards = [
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-16 bg-[#F4F7FB]">
+    <section id="contact" className="py-16 bg-[#F4F7FB] scroll-mt-36">
       <div className="max-w-6xl mx-auto px-4 md:px-6 text-center">
         <h2 className="text-3xl font-bold text-[#003B7A] mb-3">Contact Us</h2>
         <p className="text-gray-600 mb-10">
